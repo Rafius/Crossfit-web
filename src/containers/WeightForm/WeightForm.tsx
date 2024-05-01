@@ -1,30 +1,30 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect, ChangeEvent } from "react";
 
 const WeightForm = () => {
   const [weights, setWeights] = useState({
-    deadlift: '',
-    benchPress: '',
-    pressStrict: '',
-    backSquat: '',
-    frontSquat: '',
-    powerSnatch: '',
-    squatSnatch: '',
-    powerClean: '',
-    squatClean: '',
-    thruster: ''
+    deadlift: "",
+    benchPress: "",
+    pressStrict: "",
+    backSquat: "",
+    frontSquat: "",
+    powerSnatch: "",
+    squatSnatch: "",
+    powerClean: "",
+    squatClean: "",
+    thruster: ""
   });
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setWeights({ ...weights, [name]: value });
   };
 
   const saveWeightsToLocalStorage = () => {
-    localStorage.setItem('weights', JSON.stringify(weights));
+    localStorage.setItem("weights", JSON.stringify(weights));
   };
 
   useEffect(() => {
-    const storedWeights = localStorage.getItem('weights');
+    const storedWeights = localStorage.getItem("weights");
     if (storedWeights) {
       setWeights(JSON.parse(storedWeights));
     }
