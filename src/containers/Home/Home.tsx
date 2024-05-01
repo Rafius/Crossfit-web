@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div>
       {workout.thursday.map((exercise) => {
-        const exercisePr = prs[exercise.key] ?? "?";
+        const exercisePr = prs?.[exercise.key];
 
         return (
           <div key={exercise.key}>
@@ -15,7 +15,7 @@ const Home = () => {
                 <div key={round.weight}>
                   <p>
                     Series: {round.sets}, Repeticiones: {round.reps}, Peso:{" "}
-                    {round.weight * exercisePr}
+                    {round.weight * exercisePr || "Introduce tus pesos"}
                   </p>
                 </div>
               );
