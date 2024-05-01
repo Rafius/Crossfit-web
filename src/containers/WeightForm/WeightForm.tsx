@@ -1,18 +1,25 @@
 import { useState, useEffect, ChangeEvent } from "react";
 
+const initialWeights = {
+  deadlift: 170,
+  benchPress: 97.5,
+  pressStrict: 60,
+  backSquat: 130,
+  frontSquat: 100,
+  powerSnatch: 57,
+  hangSnatch: 50,
+  highHangSnatch: 50,
+  squatSnatch: 40,
+  powerClean: 90,
+  hangClean: 80,
+  highHangClean: 70,
+  squatClean: 90,
+  thruster: 65,
+  pushPress: 75
+};
+
 const WeightForm = () => {
-  const [weights, setWeights] = useState({
-    deadlift: "",
-    benchPress: "",
-    pressStrict: "",
-    backSquat: "",
-    frontSquat: "",
-    powerSnatch: "",
-    squatSnatch: "",
-    powerClean: "",
-    squatClean: "",
-    thruster: ""
-  });
+  const [weights, setWeights] = useState(initialWeights);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;

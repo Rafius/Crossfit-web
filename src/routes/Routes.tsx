@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "../containers/Home/Home";
+import Home from "../containers/Workout/Home";
 import WeightForm from "../containers/WeightForm/WeightForm";
 import Menu from "../components/Menu/Menu";
 
