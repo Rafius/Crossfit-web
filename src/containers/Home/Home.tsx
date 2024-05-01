@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div>
       {workout.thursday.map((exercise) => {
-        const exercisePr = prs[exercise.key];
+        const exercisePr = prs[exercise.key] ?? "?";
 
         return (
           <div key={exercise.key}>
