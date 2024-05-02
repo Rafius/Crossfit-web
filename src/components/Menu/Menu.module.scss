@@ -1,23 +1,39 @@
 .Menu {
-  nav {
-    ul {
-      list-style-type: none;
-      text-align: center;
-      padding: 0;
-      margin: 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-top: 2px solid gray;
 
-      li {
-        display: inline-block;
-        margin: 0 10px;
+  &__itemContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0;
+  }
 
-        a {
-          text-decoration: none;
-          color: black;
-          &:hover {
-            color: blue;
-          }
-        }
-      }
+  &__item {
+    list-style-type: none;
+
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: #1c1818;
     }
+
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
+.active {
+  a {
+    color: #1d9aed;
   }
 }

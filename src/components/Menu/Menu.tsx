@@ -1,16 +1,25 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./Menu.module.scss";
+import { routes } from "../../routes/Routes";
 
 const Menu = () => {
+  const { pathname } = useLocation();
+
   return (
     <nav className={styles.Menu}>
-      <ul>
-        <li>
-          <Link to="/">Mis Entrenos</Link>
-        </li>
-        <li>
-          <Link to="/prs">Mis pesos</Link>
-        </li>
+      <ul className={styles.Menu__itemContainer}>
+        {routes.map(({ path, icon, text }) => (
+          <li
+            className={`${styles.Menu__item} ${
+              pathname === path && styles.active
+            }`}
+          >
+            <Link to={path}>
+              {icon}
+              {text}
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );

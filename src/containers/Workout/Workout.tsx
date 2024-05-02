@@ -4,7 +4,7 @@ import workouts from "./workouts.ts";
 const getDate = () => {
   const currentDate = new Date();
 
-  const day = currentDate.getDate() ; // add + 1 to get tomorrow´s workout
+  const day = currentDate.getDate(); // add + 1 to get tomorrow´s workout
   const month = currentDate.getMonth() + 1;
   const year = currentDate.getFullYear();
 
@@ -17,7 +17,7 @@ const Workout = () => {
   const todaysWorkout: Array<Exercise> = workouts[formattedDate];
 
   return (
-    <div>
+    <div className="">
       {todaysWorkout?.map((exercise: Exercise, index) => {
         const exercisePr = prs?.[exercise.key];
 
