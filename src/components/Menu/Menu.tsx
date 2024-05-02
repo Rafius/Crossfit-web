@@ -10,6 +10,7 @@ const Menu = () => {
       <ul className={styles.Menu__itemContainer}>
         {routes.map(({ path, icon, text }) => (
           <li
+            key={path}
             className={`${styles.Menu__item} ${
               pathname === path && styles.active
             }`}

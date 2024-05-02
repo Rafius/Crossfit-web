@@ -1,5 +1,6 @@
 import { Exercise, Round } from "./Workout.interfaces.ts";
 import workouts from "./workouts.ts";
+import styles from "./Workout.module.scss";
 
 const getDate = () => {
   const currentDate = new Date();
@@ -11,7 +12,8 @@ const getDate = () => {
   return day + "/" + month + "/" + year;
 };
 const Workout = () => {
-  const prs = JSON.parse(localStorage.getItem("weights") ?? "");
+  const weightsString = localStorage.getItem("weights");
+  const prs = weightsString && JSON.parse(weightsString);
 
   const formattedDate = getDate();
   const todaysWorkout: Array<Exercise> = workouts[formattedDate];
@@ -22,18 +24,18 @@ const Workout = () => {
         const exercisePr = prs?.[exercise.key];
 
         return (
-          <div key={index}>
-            <p> {exercise.name}</p>
+          <div className={styles.Workout} key={index}>
+            <h2> {exercise.name}</h2>
             {exercise.rounds.map((round: Round, key) => {
+              const exerciseWeight =
+                round.weight && exercisePr
+                  ? parseFloat((round.weight * exercisePr).toFixed(1))
+                  : "Introduce tus rms para calcular";
+
               return (
                 <div key={key}>
                   <p>
-                    {round.sets}X{round.reps}
-                    {round.weight
-                      ? ` ${parseFloat(
-                          (round.weight * exercisePr).toFixed(1)
-                        )} kg`
-                      : ""}
+                    {round.sets}X{round.reps} {exerciseWeight}
                   </p>
                 </div>
               );

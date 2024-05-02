@@ -1,5 +1,5 @@
 import { useState, useEffect, ChangeEvent } from "react";
-
+import styles from "./WeigthForm.module.scss";
 const initialWeights = {
   deadlift: 170,
   benchPress: 97.5,
@@ -39,7 +39,7 @@ const WeightForm = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.WeightForm}>
       <h2>Enter Weights</h2>
       <form>
         {Object.entries(weights).map(([exercise, weight]) => (
