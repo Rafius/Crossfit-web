@@ -29,7 +29,7 @@ const workouts: WorkoutPlan = {
     {
       key: "powerSnatch",
       name: "Snatch dl hold",
-      rounds: [{ sets: 10, reps: "5 sec", weight: 1.2 }]
+      rounds: [{ sets: 10, reps: '5"', weight: 1.2 }]
     }
   ],
   "4/5/2024": [
@@ -41,7 +41,22 @@ const workouts: WorkoutPlan = {
     {
       key: "powerClean",
       name: "Clean Deadlift",
-      rounds: [{ sets: 5, reps: "10 sec", weight: 0.6 }]
+      rounds: [{ sets: 5, reps: '10"', weight: 0.6 }]
+    },
+    {
+      key: "",
+      name: "Drive jerk",
+      rounds: [{ sets: 5, reps: 5 }]
+    },
+    {
+      key: "",
+      name: "Jerk Balance",
+      rounds: [{ sets: 5, reps: 5 }]
+    },
+    {
+      key: "splitJerk",
+      name: "Split Jerk",
+      rounds: [{ sets: 1, reps: 10, weight: 0.5 }]
     }
   ]
 };

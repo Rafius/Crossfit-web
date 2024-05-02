@@ -15,7 +15,8 @@ const initialWeights = {
   highHangClean: 70,
   squatClean: 90,
   thruster: 65,
-  pushPress: 75
+  pushPress: 75,
+  splitJerk: 70
 };
 
 const WeightForm = () => {

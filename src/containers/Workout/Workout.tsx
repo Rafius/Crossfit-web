@@ -1,16 +1,16 @@
-import { Exercise, Round } from "./Workout.interfaces";
+import { Exercise, Round } from "./Workout.interfaces.ts";
 import workouts from "./workouts.ts";
 
 const getDate = () => {
   const currentDate = new Date();
 
-  const day = currentDate.getDate() + 3; // add + 1 to get tomorrow´s workout
+  const day = currentDate.getDate() ; // add + 1 to get tomorrow´s workout
   const month = currentDate.getMonth() + 1;
   const year = currentDate.getFullYear();
 
   return day + "/" + month + "/" + year;
 };
-const Home = () => {
+const Workout = () => {
   const prs = JSON.parse(localStorage.getItem("weights") ?? "");
 
   const formattedDate = getDate();
@@ -28,9 +28,12 @@ const Home = () => {
               return (
                 <div key={key}>
                   <p>
-                    Series: {round.sets}, Repeticiones: {round.reps}, Peso:
-                    {(round.weight * exercisePr).toFixed(1) ||
-                      "Introduce tus pesos"}
+                    {round.sets}X{round.reps}
+                    {round.weight
+                      ? ` ${parseFloat(
+                          (round.weight * exercisePr).toFixed(1)
+                        )} kg`
+                      : ""}
                   </p>
                 </div>
               );
@@ -44,4 +47,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Workout;

@@ -7,7 +7,7 @@ export interface Exercise {
 export interface Round {
   sets: number;
   reps: number | string;
-  weight: number;
+  weight?: number;
 }
 
 export interface WorkoutPlan {
