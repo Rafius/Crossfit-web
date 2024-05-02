@@ -1,5 +1,6 @@
 import { useState, useEffect, ChangeEvent } from "react";
 import styles from "./WeigthForm.module.scss";
+import { useNavigate } from "react-router-dom";
 const initialWeights = {
   deadlift: 170,
   benchPress: 97.5,
@@ -21,6 +22,7 @@ const initialWeights = {
 
 const WeightForm = () => {
   const [weights, setWeights] = useState(initialWeights);
+  const navigate = useNavigate();
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -29,6 +31,7 @@ const WeightForm = () => {
 
   const saveWeightsToLocalStorage = () => {
     localStorage.setItem("weights", JSON.stringify(weights));
+    navigate("/");
   };
 
   useEffect(() => {
